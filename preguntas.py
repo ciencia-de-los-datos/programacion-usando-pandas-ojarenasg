@@ -22,7 +22,8 @@ def pregunta_01():
     40
 
     """
-    return
+    filas0=len(tbl0)
+    return filas0
 
 
 def pregunta_02():
@@ -33,7 +34,8 @@ def pregunta_02():
     4
 
     """
-    return
+    columnas0=tbl0.shape[1]
+    return columnas0
 
 
 def pregunta_03():
@@ -50,7 +52,9 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return
+    cont= tbl0.groupby(["_c1"]).size()
+    
+    return cont
 
 
 def pregunta_04():
@@ -65,7 +69,8 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    return
+    prom= tbl0.groupby(by="_c1", ).mean()["_c2"]
+    return prom
 
 
 def pregunta_05():
@@ -82,7 +87,8 @@ def pregunta_05():
     E    9
     Name: _c2, dtype: int64
     """
-    return
+    maxi= tbl0.groupby(by="_c1", ).max()["_c2"]
+    return maxi
 
 
 def pregunta_06():
@@ -94,7 +100,11 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+    tbl1["_c4"]=tbl1["_c4"].str.upper()
+    orden=tbl1.sort_values("_c4")
+    unicos= orden["_c4"].unique()
+    
+    return unicos.tolist()
 
 
 def pregunta_07():
@@ -110,7 +120,8 @@ def pregunta_07():
     E    67
     Name: _c2, dtype: int64
     """
-    return
+    suma= tbl0.groupby(by="_c1", ).sum()["_c2"]
+    return suma
 
 
 def pregunta_08():
@@ -128,7 +139,9 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    return
+    tbl0["suma"]=tbl0["_c0"]+tbl0["_c2"]
+    
+    return tbl0
 
 
 def pregunta_09():
